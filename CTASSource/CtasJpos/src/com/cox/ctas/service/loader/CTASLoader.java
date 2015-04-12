@@ -5,7 +5,6 @@
  ************************************************************/
 package com.cox.ctas.service.loader;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.eclipse.jetty.server.Server;
@@ -65,7 +64,7 @@ public class CTASLoader {
 	 * configures Log4j using the default configuration file
 	 */
 	public void configureLog4j() {
-		DOMConfigurator.configure("../log4j.xml");
+		DOMConfigurator.configure(ClassLoader.getSystemResource("config/log4j/log4j.xml"));
 	}
 
 	/**
@@ -91,7 +90,7 @@ public class CTASLoader {
 				jServer = new Server(port);
 				WebAppContext context = new WebAppContext();
 				context.setContextPath("/" + "CTASWebService");
-				context.setWar("../war/CTASWebService.war");
+				context.setWar(ClassLoader.getSystemResource("war/CTASWebService.war").toString());
 				context.setServer(jServer);
 				jServer.setHandler(context);
 				jServer.start();

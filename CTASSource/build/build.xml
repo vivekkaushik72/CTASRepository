@@ -57,7 +57,7 @@
   </target>
   
  <target name="transfer.installer" description="clean up" depends="dist,makewar">
- <echo message="**********************   :  Moving Jars to Installer  :   *******************************"/>
+ <echo message="**********************   :  Moving Jars to Service Folder  :   *******************************"/>
   <property file="build.properties"/>
 
   <!--<property name="installer.dir" value="${client.install.dir}"/>-->
