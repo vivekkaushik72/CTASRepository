@@ -1,0 +1,51 @@
+Setting enviornment for CTAS Source build
+PROJECT_DIR=C:\CTAS\Src\CTASDemo
+Buildfile: C:\CTAS\Src\CTASDemo\build\build.xml
+
+init:
+     [echo] **********************      :  Building CTAS Project  :       *******************************
+
+compile:
+     [echo] **********************     :  Compiling Source  :  *******************************
+    [javac] C:\CTAS\Src\CTASDemo\build\build.xml:35: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to C:\CTAS\Src\CTASDemo\build\build
+
+dist:
+     [echo] **********************   :  Making Jars :   *******************************
+     [copy] Copying 1 file to C:\CTAS\Src\CTASDemo\build\build
+      [jar] Building jar: C:\CTAS\Src\CTASDemo\build\dist\ctas\lib\ctas.jar
+
+initwar:
+     [echo] **********************     :  Starting WAR build  :  *******************************
+
+compilewar:
+     [echo] **********************     :  Compiling WAR Source  :  *******************************
+    [javac] C:\CTAS\Src\CTASDemo\WebService\build\build.xml:80: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 4 source files to C:\CTAS\Src\CTASDemo\build\wardist\bin
+
+war:
+     [echo] **********************   :  Making WAR file:   *******************************
+      [war] Building war: C:\CTAS\Src\CTASDemo\build\wardist\CTASWebService.war
+
+copy:
+     [echo] **********************   :  Moving WAR to CTAS Location  :   *******************************
+     [copy] Copying 1 file to C:\CTAS\Src\CTASDemo\CtasJpos\war
+
+makewar:
+     [echo] **********************   :  Cleaning WAR dist directory:   *******************************
+   [delete] Deleting directory C:\CTAS\Src\CTASDemo\build\wardist
+
+transfer.installer:
+     [echo] **********************   :  Moving Jars to Installer  :   *******************************
+     [copy] Copying 1 file to C:\CTAS\CTASInstallertmp\lib
+     [copy] Copying 67 files to C:\CTAS\CTASInstallertmp\lib
+     [copy] Copying 26 files to C:\CTAS\CTASInstallertmp\lib
+     [copy] Copying 1 file to C:\CTAS\CTASInstallertmp\war
+
+installer:
+     [echo] **********************   :  Cleaning:   *******************************
+   [delete] Deleting directory C:\CTAS\Src\CTASDemo\build\build
+   [delete] Deleting directory C:\CTAS\Src\CTASDemo\build\dist
+
+BUILD SUCCESSFUL
+Total time: 19 seconds
