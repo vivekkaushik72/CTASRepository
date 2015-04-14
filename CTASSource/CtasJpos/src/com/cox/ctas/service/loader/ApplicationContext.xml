@@ -9,6 +9,28 @@
         <property name="storeNumber" value="04241"/>
         <property name="jserverPort" value="8090"/>
         <property name="csvFilePath" value="src/com/cox/ctas/service/loader/machineIDs.csv"/>
+        <!--  <property name="cardRulesFilePath" value="src/com/cox/ctas/service/loader/cardRules.xml" /> -->
+ 
+        <!-- URL for LISA payment auth gateway 
+        <property name="paymentechURL" value="http://172.18.200.163:7022/PaymentechAuthorization/Authorization" />-->
+        <!-- URL for Original PaymentTech payment auth gateway used for testing public.key encryption 
+        <property name="paymentechURL" value="https://cpg.qa.cox.com:8443/PaymentechAuthorization/Authorization?wsdl" />--> 
+        <!-- URL for CPG payment auth gateway used for testing public.key encryption -->
+        <property name="paymentechURL" value="https://cpg.dev.cox.com:8443/PaymentechAuthorization2/Authorization2?wsdl" />
     </bean>
+    
+   <!--  <bean id="CardRuleProperties" class="com.cox.ctas.service.configuration.CardRuleProperties" lazy-init="false" scope="singleton">
+    	<property name="visa" value="true"/>
+    	<property name="visaRegex" value="" />
+    	<property name="masterCard" value="true"/>
+    	<property name="amex" value="true"/>
+    	<property name="discover" value="true"/>
+    	<property name="diners" value="false"/>
+    	<property name="houseCard" value="false"/>
+    	<property name="jCB" value="false"/>
+    	
+    
+    
+    </bean> -->
 
 </beans>

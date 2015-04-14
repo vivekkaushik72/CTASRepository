@@ -29,7 +29,6 @@
 	<classpathentry kind="lib" path="lib/spring-jdbc-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-tx-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-web-4.0.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/PaymenTech.jar"/>
 	<classpathentry kind="lib" path="lib/cox_security_client.jar"/>
 	<classpathentry kind="lib" path="lib/COXUpdateVoidPayments.jar"/>
 	<classpathentry kind="lib" path="lib/TeleCheck.jar"/>
@@ -73,5 +72,6 @@
 	<classpathentry kind="lib" path="lib/XmlSchema-1.4.2.jar"/>
 	<classpathentry kind="lib" path="lib/jai_codec.jar"/>
 	<classpathentry kind="lib" path="lib/jai_core.jar"/>
+	<classpathentry kind="lib" path="lib/PaymenTech.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,8 +1,12 @@
-/************************************************************
+/**************************************************************
  * Copyright(c) 2015 Cox Communications. All Rights Reserved.
  * 
- * Rev 1.0 Feb 24, 2015 - initial revision 
- ************************************************************/
+ * ************************************************************
+ * Rev: 041415: corp/mamcfarl: remove date capture code. date 
+ * is now discerned from cc byte array msr data. + added try 
+ * catch on MSR and sigCap calls - finally block used to close 
+ * device if an error is encountered.
+ **************************************************************/
 package com.cox.ctas.service.device;
 
 import org.apache.commons.codec.binary.Base64;
@@ -17,7 +21,7 @@ import com.cox.ctas.vf.mx.adapters.Mx8xxFormsAdapter;
  * web service. POS will utilize these methods to perform actions
  * on the CPOI device. This class is a singleton.  
  * 
- * @author 
+ * @author corp/mamcfarl
  *
  */
 public class CTASDeviceActionService implements CTASDeviceActionServiceIfc {
@@ -28,8 +32,6 @@ public class CTASDeviceActionService implements CTASDeviceActionServiceIfc {
 	private static String SERVICE_TYPE = "CTASDeviceActionService";
 	/**holds an instance of the deviceService used to control the CPOI device*/
 	private static CTASDeviceActionService deviceConnection = null;
-	/**holds the value of the credit card expiration date*/
-	private String expDte;
 	/**an instance of the controller for the device*/
 	private Mx8xxFormsAdapter mxForms = new Mx8xxFormsAdapter();
 
@@ -200,6 +202,7 @@ public class CTASDeviceActionService implements CTASDeviceActionServiceIfc {
 		String sig = null;
 		byte [] sigCapInBytes = null;
 		
+		try {
 		mxForms.open();
 		mxForms.claim();
 		mxForms.deviceEnabled(true);
@@ -208,10 +211,16 @@ public class CTASDeviceActionService implements CTASDeviceActionServiceIfc {
 		mxForms.formSig();
 		sigCapInBytes = mxForms.getRawData();
 		sig = new String (Base64.encodeBase64(sigCapInBytes));
-		mxForms.close();
 		mxForms.release();
 		
 		logger.info("getSignature: sigCap data captured");
+		} catch (Exception e){
+			logger.info("Exception encountered on getSignature");
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			mxForms.close();
+		}
 		return sig;
 	}
 	
@@ -219,34 +228,28 @@ public class CTASDeviceActionService implements CTASDeviceActionServiceIfc {
 	 * device command to show MSR prompt form and get MSR 
 	 * data.
 	 */
-	public String getMSR() {
+	public byte[] getMSR() {
 		logger.info("getMSR: Received request to show and acquire MSR data");
-		
-		expDte = null;
-		String msr = null;
+
 		byte[] cardNumberinBytes = null;
-		
-		mxForms.open();
-		mxForms.claim();
-		mxForms.deviceEnabled(true);
-		mxForms.initForm("MSRPRMPT");
-		mxForms.showForm("MSRPRMPT");
-		mxForms.formMSR();
-		cardNumberinBytes = mxForms.getTrack2Data();
-		expDte = mxForms.getExpDate();
-		msr = new String (Base64.encodeBase64(cardNumberinBytes));
-		mxForms.close();
-		
-		logger.info("getMSR: MSR data captured");
-		return msr;
-	}
-	
-	/**
-	 * gets the expiration date value held in expDate
-	 * 
-	 * @return	value of expDate
-	 */
-	public String getExpDate() {
-		return expDte;
+
+		try {
+			mxForms.open();
+			mxForms.claim();
+			mxForms.deviceEnabled(true);
+			mxForms.initForm("MSRPRMPT");
+			mxForms.showForm("MSRPRMPT");
+			mxForms.formMSR();
+			cardNumberinBytes = mxForms.getTrack2Data();
+
+			logger.info("getMSR: MSR data captured");
+		} catch (Exception e) {
+			logger.info("Exception encountered on getMSR");
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			mxForms.close();
+		}
+		return cardNumberinBytes;
 	}
 }

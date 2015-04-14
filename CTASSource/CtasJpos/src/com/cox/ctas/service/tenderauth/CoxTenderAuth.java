@@ -13,19 +13,14 @@ package com.cox.ctas.service.tenderauth;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Properties;
-
-import jpos.JposException;
 
 import org.apache.log4j.Logger;
-import org.apache.xerces.impl.dv.util.Base64;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -34,8 +29,6 @@ import com.cox.ctas.service.device.CTASDeviceActionService;
 import com.cox.ctas.service.utility.GenUtils;
 import com.cox.ctas.service.webservice.AuthRequest;
 import com.cox.ctas.service.webservice.AuthResponse;
-import com.cox.ctas.vf.mx.adapters.Mx8xxFormsAdapter;
-import com.cox.ctas.vf.mx.adapters.Mx8xxMSRAdapter;
 import com.cox.paymentservices.paymentech.Authorization;
 import com.cox.paymentservices.paymentech.AuthorizationDocument;
 import com.cox.paymentservices.paymentech.AuthorizationResponse;
@@ -43,41 +36,8 @@ import com.cox.paymentservices.paymentech.AuthorizationResponse.Return;
 import com.cox.paymentservices.paymentech.AuthorizationResponseDocument;
 import com.cox.paymentservices.paymentech.AuthorizationServiceStub;
 import com.cox.paymentservices.paymentech.DataExceptionException0;
-import com.cox.wireless.billing.cxf.service.AdjustmentInquiry;
-import com.cox.wireless.billing.cxf.service.AdjustmentInquiryDocument;
-import com.cox.wireless.billing.cxf.service.AdjustmentInquiryResponse;
-import com.cox.wireless.billing.cxf.service.AdjustmentInquiryResponseDocument;
-import com.cox.wireless.billing.cxf.service.AdjustmentRequest;
-import com.cox.wireless.billing.cxf.service.AdjustmentResponse;
-import com.cox.wireless.billing.cxf.service.ChannelEnum;
-import com.cox.wireless.billing.cxf.service.EnumCheckType;
-import com.cox.wireless.billing.cxf.service.IOException;
-import com.cox.wireless.billing.cxf.service.IOExceptionDocument;
-import com.cox.wireless.billing.cxf.service.IOExceptionException1;
-import com.cox.wireless.billing.cxf.service.MopEnum;
-import com.cox.wireless.billing.cxf.service.SaleInquiry;
-import com.cox.wireless.billing.cxf.service.SaleInquiryDocument;
-import com.cox.wireless.billing.cxf.service.SaleInquiryResponse;
-import com.cox.wireless.billing.cxf.service.SaleInquiryResponseDocument;
-import com.cox.wireless.billing.cxf.service.SalesRequest;
-import com.cox.wireless.billing.cxf.service.SalesResponse;
-import com.cox.wireless.billing.cxf.service.StatusInquiry;
-import com.cox.wireless.billing.cxf.service.StatusInquiryDocument;
-import com.cox.wireless.billing.cxf.service.StatusInquiryResponse;
-import com.cox.wireless.billing.cxf.service.StatusInquiryResponseDocument;
-import com.cox.wireless.billing.cxf.service.StatusRequest;
-import com.cox.wireless.billing.cxf.service.StatusResponse;
-import com.cox.wireless.billing.cxf.service.TeleCheckImplServiceStub;
-import com.cox.wireless.billing.cxf.service.UnknownHostException;
-import com.cox.wireless.billing.cxf.service.UnknownHostExceptionDocument;
-import com.cox.wireless.billing.cxf.service.UnknownHostExceptionException2;
-import com.cox.wireless.billing.cxf.service.ValidationException;
-import com.cox.wireless.billing.cxf.service.ValidationExceptionDocument;
-import com.cox.wireless.billing.cxf.service.ValidationExceptionException0;
 import com.cox.wireless.billing.paymentech.request.AccountInfoDocument.AccountInfo;
-import com.cox.wireless.billing.paymentech.request.AddressInfoDocument.AddressInfo;
 import com.cox.wireless.billing.paymentech.request.EMethodOfPaymentType;
-import com.cox.wireless.billing.paymentech.request.ETelephoneType;
 import com.cox.wireless.billing.paymentech.request.OrderInfoDocument.OrderInfo;
 import com.cox.wireless.billing.paymentech.request.PaymentInfoDocument.PaymentInfo;
 import com.cox.wireless.billing.paymentech.request.PosInfoDocument.PosInfo;
@@ -87,7 +47,6 @@ import com.cox.wireless.billing.paymentech.request.SalesInfoDocument.SalesInfo;
 import com.cox.wireless.billing.paymentech.request.SessionDocument.Session;
 import com.cox.wireless.billing.paymentech.response.ResponseSessionDocument.ResponseSession;
 import com.cox.wireless.security.Encrypt;
-import com.cox.wireless.security.SecurityException;
 
 //-------------------------------------------------------------------------
 /**
@@ -97,7 +56,7 @@ import com.cox.wireless.security.SecurityException;
  * parses responses according to the specifications outlined in the ISD 
  * IMSRTRIB Message Server Router Interface copy book.
  * 
- * Note: for release 6.0, the ISD integration effort covers credit, debit and
+ * Note: for release 6.0, the ISD integration effort covers credit, debit, and
  * check authorizations only. Gift card and house account authorizations may be
  * scheduled for a future release.
  * 
@@ -106,7 +65,7 @@ import com.cox.wireless.security.SecurityException;
  */
 // -------------------------------------------------------------------------
 
-public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
+public class CoxTenderAuth implements CoxTenderAuthConstantsIfc {
 
 	/**logger for the class*/
 	Logger logger = Logger.getLogger(CoxTenderAuth.class);
@@ -115,12 +74,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 	/**constant for class name used for logging*/
 	private static final String CLASSNAME = "CoxTenderAuth";
 
-
-	//REVISIT - Needs to be externalized to xml
-	/** hard coded URL for LISA payment auth gateway*/
-	//private String paymentechServiceURL = "http://172.18.200.163:7022/PaymentechAuthorization/Authorization";
-	/** hard coded URL for Original PaymentTech payment auth gateway used for testing public.key encryption*/
-	private String paymentechServiceURL = "https://cpg.dev.cox.com:8443/PaymentechAuthorization/Authorization?wsdl";
+	private String paymentechServiceURL = "";
 	/**holds the URL value for the RWS check payment auth gateway*/
 	private String teleCheckServiceURL = "";  
 	/**holds the value for the check payment interval in milliseconds*/
@@ -130,7 +84,15 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 	/**holds an instance of the deviceService used to control the CPOI device*/
 	private CTASDeviceActionService deviceService;
 	/**holds value of the encrypted card number*/
-	private String encryptedCardNumber = null;
+	private byte[] cardNumberInBytes;
+	/**holds value of track 2 field separator*/
+	private final String T2_FIELD_SEPARATOR = "=";
+	/**holds value of track 2 exp date offset of 1*/
+	private final int T2_EXP_DATE_OFFSET1 = 1;
+	/**holds value of track 2 exp date offset of 5*/
+	private final int T2_EXP_DATE_OFFSET5 = 5;
+	/**holds card type information*/
+	private String cardType;
 	/**holds an instance of the CTAS properties that holds configurable values*/
 	private CTASProperties properties;
 	
@@ -139,8 +101,13 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 	 */
 	public CoxTenderAuth() {
 		if(logger.isDebugEnabled()){
-			logger.debug("CoxTenderAuth started");
+			logger.debug(CLASSNAME + " started");
 		}
+		
+		@SuppressWarnings("resource")
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/cox/ctas/service/loader/ApplicationContext.xml");      
+        logger.info("Getting CTAS Properties");
+        properties = (CTASProperties) applicationContext.getBean("CTASProperties");
 	}
 
 	/*// ----------------------------------------------------------------------
@@ -188,7 +155,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 	}*/
 
 	// -------------------------------------------------------------------------
-	
+
 	/***
 	 * evaluates the response code received from payment gateway
 	 * 
@@ -197,7 +164,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 	 * @param siebelOrder
 	 * @return
 	 */
-	
+
 	public String getResponseCode(String statusCode, String reasonCode, boolean siebelOrder) {
 		// Some of the codes are the same so set to statusCode as default
 		String responseCode = statusCode;
@@ -333,10 +300,13 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 		StringBuffer requestStringBuffer = null;
 		AuthResponse response = null;
 		AuthorizationResponseDocument outDocument = null;
-		boolean manualEntry = false;
+		
+
 
 		try {        		
 
+	        paymentechServiceURL = properties.getPaymentechURL();
+			
 			AuthorizationServiceStub stub = new AuthorizationServiceStub(getPaymentechServiceURL());
 
 			/* GET INSTANCES of objects needed for authorization from the factory */ 
@@ -354,6 +324,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 			AccountInfo acctInfo = AccountInfo.Factory.newInstance();
 
 			Session session = Session.Factory.newInstance();
+
 			// payment info
 			PaymentInfo paymentInfo = PaymentInfo.Factory.newInstance();
 
@@ -385,93 +356,120 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 			// TER 8120, AIA Decommissioned modification, POS should not sending presenter ID and division ID to WWS 
 			// presenter ID
 			//Changed by SN
-			/*salesInfo.setPresenterId("030480");
+			//salesInfo.setPresenterId("030480");
 
-    			// division ID
-    			salesInfo.setDivisionId(30605);*/
+			// division ID
+			//salesInfo.setDivisionId(30605);
 
 			// batch Number
 			salesInfo.setBatchNumber("");
 			//Ends here
 
-			//REVISIT
-			/*uniqueIdGeneratorForCreditPaymentRecords.append( new
-			  Integer((int) Math.round(1000 * Math.random())) .toString());*/
+			//			uniqueIdGeneratorForCreditPaymentRecords.append( new
+			//					Integer((int) Math.round(1000 * Math.random())) .toString());
 
 			StringBuffer uniqueIdGeneratorForCreditPaymentRecords = new StringBuffer();
 
-			//not included in current request object
+			//TODO not included in current request object
 			//((AuthRequest) request).setICOMSAccountNumber(request.getICOMSAccountNumber());
 			//acctInfo.setSiebelAccountNumber(((AuthRequest)request).getSiebelAccountNumber());
 
+
+			//((CoxTenderAuthRequest) request).setICOMSAccountNumber(request.getICOMSAccountNumber());
+
+			//TODO ICOMS # should not be hardcoded 
+			String hardCodedICOMSNumber = "135066631926";
+
+			//			if (((AuthRequest) request).getICOMSAccountNumber() != null
+			//					&& ((AuthRequest) request).getICOMSAccountNumber().length() > 0) {
+
+			acctInfo.setIcomsAccountNumber(hardCodedICOMSNumber);
+
+			//			} else {
+			//				logger.error("Did not get ICOMS Account Number");
+			//				throw new RemoteException(
+			//						"Invalid Data. ICOMS Account Number not found");
+			//			}
+
+			//TODO Needs to be set in and retrieved from AuthRequest object
+			acctInfo.setSiebelAccountNumber("");
+
+
 			uniqueIdGeneratorForCreditPaymentRecords.append(request.getTransactionID());
 
-			//REVISIT
+			//TODO
 			//uniqueIdGeneratorForCreditPaymentRecords.append(((AuthRequest)request).getUniqueIncrementer());
 
+
+			//TODO
 			session.setTransactionId(uniqueIdGeneratorForCreditPaymentRecords.toString());
 
-			//((AuthRequest)request).setOrderID(request.getTransactionID());
+			//			((AuthRequest)request).setOrderID(request.getTransactionID());
+			//			
+			//			if (((AuthRequest)request).getOrderID() != null && ((AuthRequest)request).getOrderID().length() > 0) 
+			//			{
+			orderInfo.setSiebelOrderNumber("1");
+
+
+			//			} else {
+			//				logger.error("Order not found");
+			//				throw new RemoteException("Invalid Data.Order Number not found");
+			//			}
+
+			// TER 8120, Decommission modification, POS is not sending the MarketInciator to WWS
+			//salesInfo.setMarketIndicator(request.getMarketIndicator());   
 
 			/*Code to read CSV file */
-			
-			boolean isDeviceAuthorized = readCSV("12345"); //Testing purpose machineID is given 12345
+			boolean isDeviceAuthorized = readCSV("12345"); //TODO Testing purpose machineID is given 12345
 			
 			if(!isDeviceAuthorized){
-				return null;
+				logger.error("Device Not Authorized: Serial # mismatch");
+				response = new AuthResponse(REQUEST_TYPE_NOT_SUPPORTED);
+				response.setIccDetails("Device Not Authorized: Serial # mismatch");
+				response.setAuthorisationResponseCode("Device Not Authorized: Serial # mismatch");
+				return response;
 			}
 			
 			//START CTAS INTEGRATION
 			//get an instance of the deviceService
 			deviceService = CTASDeviceActionService.getInstance();
+			
 
 			switch (request.getAuthorizationTransactionType()) {
 			case CREDIT:
-				
-				//holds Base64Encrypted CC#
-				encryptedCardNumber = null;	
-				//holds CC expiration date
+
+				//set containers for track 2 data and card expiration date
+				cardNumberInBytes = null;	
 				String cardExpirationDate = null;				
 
-				//using the deviceService get the MSR and CC Exp #
-				encryptedCardNumber = deviceService.getMSR();		
-				cardExpirationDate = deviceService.getExpDate();	
-				
-				//check CC# and CC exp date values
-				System.out.println("encryptedCardNumber: " + encryptedCardNumber);
-				System.out.println("\ncardExpirationDate: " + cardExpirationDate);
+				//using the deviceService get the track 2 data 
+				cardNumberInBytes = deviceService.getMSR();
 
-				//BEGIN MSR GET AND SET 
-				//decode Base64 encryptedCardNumber to byteArray
-				byte[] cardNumberInBytes = Base64.decode(encryptedCardNumber);
-				//attempt a byte array to String decryption without the loop as seen in CoxFinancialAuthTechnician
-				//and check value produced
-				String decryptedCardNumber = new String(Base64.decode(encryptedCardNumber));
-				System.out.println("\ndecryptedCardNumber: " + decryptedCardNumber);
-				
-				
-				//START protocol used in CoxFinancialTechnician for converting base64 to 
-				//byte array to String used prior to public key encryption
+				//capture credit card data from track 2 data - CARD NUMBER ONLY, encrypt, and set PaymentInfo
 				StringBuffer cardNumber = new StringBuffer("");
 
 				if (cardNumberInBytes != null) {
 					for (int j = 0; j < cardNumberInBytes.length; j++) {
 						cardNumber.append((char) cardNumberInBytes[j]);
 					}
-					
-					//check value produced by protocol used in CoxFinancialAuthTechnician
-					System.out.println("\ncardNumberAfterByteArrayConversion: " + cardNumber.toString());
+
+					System.out.println("cardNumber: " + cardNumber);
 
 					try {
-						//public key encryption protocol - note public.key not in path and securityconstants.properties file
-						paymentInfo.setCreditCardNumber(Encrypt.encrypt(cardNumber.toString()));
-					} catch (SecurityException e) {
-						logger.error("Unable to encrypt the card number"+e);
+						Encrypt.refreshKey();
+						paymentInfo.setCreditCardNumber(Encrypt.encrypt(cardNumber.toString().substring(0, cardNumber.indexOf(T2_FIELD_SEPARATOR))));
+						System.out.println(cardNumber.toString().substring(0, cardNumber.indexOf(T2_FIELD_SEPARATOR)));
+					} catch (Exception e) {
+						logger.debug("PaymentInfo: Unable to encrypt the card number", e);
 						e.printStackTrace();
+						logger.error(e);
 					}
 				}
 
-				//BEGIN EXP DATE GET AND SET
+				//capture expiration date from track2 data
+				cardExpirationDate = cardNumber.toString().substring(cardNumber.indexOf(T2_FIELD_SEPARATOR)+ T2_EXP_DATE_OFFSET1, cardNumber.indexOf(T2_FIELD_SEPARATOR) + T2_EXP_DATE_OFFSET5);
+				System.out.println("\ncardExpirationDate: " + cardExpirationDate);
+
 				if(cardExpirationDate != null) {
 					paymentInfo.setCardExpirationDate(cardExpirationDate);
 				} else {
@@ -480,34 +478,110 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 
 				posInfo.setAccountInfo(acctInfo);
 
-				String tenderType = "Visa";	//REVISIT: get this information from device service
+
+				//TODO this might not be needed
+				//capture ALL credit card data from track 2 data, encrypt, and set RetailInfo
+				RetailInfo retailInfo = RetailInfo.Factory.newInstance();
+
+				// Get the tracIndicator
+				retailInfo.setTracIndicator("2");
+
 
 				try {
-					String cardtype= tenderType;
+					Encrypt.refreshKey();
+					retailInfo.setSwipeData(Encrypt.encrypt(cardNumber.toString()));
+				} catch (Exception e) {
+					logger.debug("RetailInfo: Could not encrypt the track data", e);
+					e.printStackTrace();
+					logger.error(e);
+				}
 
-					System.out.println(cardtype);
+
+				// POS Entry Mode
+				retailInfo.setPosEntryMode("90");
+
+				// POS capability Code
+				retailInfo.setPosCapabilityCode("2");
+
+				// set the retailInfo
+				session.setRetailInfo(retailInfo);
+
+				/*} else {
+				AddressInfo addressInfo = AddressInfo.Factory.newInstance();
+
+				addressInfo.setTelephoneNumber("");
+
+				addressInfo.setTelephoneType(ETelephoneType.Enum.forString(""));
+
+				// set the state
+				addressInfo.setState(((CoxCreditAuthRequest) request).getState());
+
+				// set the postal Code
+				addressInfo.setPostalCode(((CoxCreditAuthRequest) request).getZipCode());
 
 
+				// set the Last Name
+				addressInfo.setLastName(((CoxCreditAuthRequest) request).getLastName());
 
 
-					if (!GenUtils.isEmpty(tenderType))
+				// set the First Name
+				addressInfo.setFirstName(((CoxCreditAuthRequest) request).getFirstName());
+
+
+				// set the Country
+				addressInfo.setCountryCode("US");
+
+				// set the city
+				addressInfo.setCity(((CoxCreditAuthRequest) request).getCity());
+
+
+				// set the Address 2
+				addressInfo.setAddressLine2(((CoxCreditAuthRequest) request).getAddress2());
+
+
+				// set the Address 1
+				addressInfo.setAddressLine1(((CoxCreditAuthRequest) request).getAddress1());
+
+				// set the AddressInfo
+
+				session.setAddressInfo(addressInfo);
+
+			}*/
+
+				//detect card type 
+				cardType = GenUtils.getCardType(cardNumber.toString().substring(0, cardNumber.indexOf(T2_FIELD_SEPARATOR)));
+				//TODO remove console print
+				System.out.println("TenderType: " + cardType);
+
+				//if card type check results in null, set and return a DECLINED response
+				if (cardType == null) {
+					logger.error("Card Type not detected: Unknown Card Type");
+					response = new AuthResponse(REQUEST_TYPE_NOT_SUPPORTED);
+					response.setResponseMessage("Unknown Card Type");
+					return response;
+				}
+
+				try{
+
+					if (!GenUtils.isEmpty(cardType))
 					{
-						if (tenderType.equalsIgnoreCase(
+						if (cardType.equalsIgnoreCase(
 								CoxTenderAuthConstantsIfc.VISA_CARD)) {
 							paymentInfo
 							.setMethodOfPayment(EMethodOfPaymentType.VI);
-						} else if ((tenderType
+						} else if ((cardType
 								.equalsIgnoreCase(
 										CoxTenderAuthConstantsIfc.DISCOVER_CARD))) {
 							paymentInfo
 							.setMethodOfPayment(EMethodOfPaymentType.DI);
-						} else if ((tenderType.equalsIgnoreCase(
+						} else if ((cardType.equalsIgnoreCase(
 								CoxTenderAuthConstantsIfc.AMERICAN_EXPRESS_CARD))) {
 							paymentInfo
 							.setMethodOfPayment(EMethodOfPaymentType.AX);
-						} else if ((cardtype.trim()).equalsIgnoreCase(CoxTenderAuthConstantsIfc.MASTER_CARD)) 
+						} else if ((cardType.trim()).equalsIgnoreCase(CoxTenderAuthConstantsIfc.MASTER_CARD)) 
 						{
 							paymentInfo.setMethodOfPayment(EMethodOfPaymentType.MC);
+							//TODO: comment out console print
 							System.out.println("Cardtype set");
 						}
 
@@ -515,7 +589,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				} catch (EnumConstantNotPresentException e) {
 					logger.error("Enum Exception");
 					response = new AuthResponse(OFFLINE);
-
+					response.setResponseMessage(e.getMessage());
 				}
 
 				break;
@@ -530,6 +604,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				} catch (EnumConstantNotPresentException e) {
 					logger.error("Enum Exception");
 					response = new AuthResponse(OFFLINE);
+					response.setResponseMessage(e.getMessage());
 				}
 				break;
 			case CHECK:
@@ -539,6 +614,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				} catch (EnumConstantNotPresentException e) {
 					logger.error("Enum Exception");
 					response = new AuthResponse(OFFLINE);
+					response.setResponseMessage(e.getMessage());
 				}
 				break;
 			case MONEY_ORDER:
@@ -548,6 +624,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				} catch (EnumConstantNotPresentException e) {
 					logger.error("Enum Exception");
 					response = new AuthResponse(OFFLINE);
+					response.setResponseMessage(e.getMessage());
 				}
 				break;
 			case TRAVELERS_CHECK:
@@ -557,6 +634,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				} catch (EnumConstantNotPresentException e) {
 					logger.error("Enum Exception");
 					response = new AuthResponse(OFFLINE);
+					response.setResponseMessage(e.getMessage());
 				}
 				break;
 			default: {
@@ -575,11 +653,9 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 
 			paymentInfo.setAmount(amt.abs().longValue());
 
-
-
 			// set the Action code
 
-			if (request.getTransactionType() == TenderAuthConstantsIfc.TRANS_SALE) {
+			if (request.getTransactionType()== TenderAuthConstantsIfc.TRANS_SALE) {
 
 				paymentInfo.setActionCode("AU");
 
@@ -604,18 +680,14 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 
 			// set the Transaction Type
 
-			if (manualEntry) {
+			orderInfo.setTransactionType(CoxTenderAuthConstantsIfc.ENTRY_METHOD_AUTO);
 
-				orderInfo.setTransactionType(CoxTenderAuthConstantsIfc.ENTRY_METHOD_MANUAL);
-			} else {
-				orderInfo.setTransactionType(CoxTenderAuthConstantsIfc.ENTRY_METHOD_AUTO);
-			}
 
 			posInfo.setOrderInfo(orderInfo);
 
 			posInfo.setSalesInfo(salesInfo);
 
-			// TER 8120, Decommision modification, POS is not sending the Paymentech User credentials to WWS
+			// TER 8120, Decommission modification, POS is not sending the Paymentech User credentials to WWS
 
 			/*UsernameToken userNameToken = UsernameToken.Factory.newInstance();
     			userNameToken.setUsername("pos_store_0001");
@@ -649,21 +721,21 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 			System.out.println("req"+authorizationDocument);
 
 			stub._getServiceClient().getOptions()
-			.setTimeOutInMilliSeconds(soTimeout);
+				.setTimeOutInMilliSeconds(soTimeout);
 
 			outDocument = AuthorizationResponseDocument.Factory.newInstance();
-			logger.debug("Paymenttech Authorization Request: "+authorizationDocument);
+			logger.debug("PaymenTech Authorization Request: "+authorizationDocument);
 
 			outDocument = stub.authorization(authorizationDocument);
 
 			System.out.println(outDocument);
 
-			logger.debug("Paymenttech Authorization Response : "+outDocument);
-
+			logger.debug("PaymenTech Authorization Response : "+ outDocument);
+			
 			AuthorizationResponse authResponse = AuthorizationResponse.Factory
 					.newInstance();
 
-			deviceService.showAuthorization();
+			deviceService.showAuthorization();  //Authorizing...please wait
 
 			authResponse = outDocument.getAuthorizationResponse();
 
@@ -687,19 +759,26 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				responseSessionArray = responsemessage
 						.getResponseSessionArray();
 
-				responseSession = responseSessionArray[0];
 
 				response = new AuthResponse();
 
 				// Grab the Response text
 
-				// response.setResponseText(responseSession.getResponseMessage());
+				//response.setResponseText(responseSession.getResponseMessage());
 
 
 
 				// The Response code
 				//((AuthRequest) request).isSiebelOrder())
+				
+				/*response.setResponseCode(getResponseCode(
+						responseSession.getResponseStatusCode(),
+						responseSession.getResponseReasonCode(),
+						((AuthRequest) request).isSiebelOrder()));
+				
 				//Set the Ads Transaction Id in CoxTenderAuthResponse
+				
+				response.setAdsTransactionId(responseSession.getTransactionId());*/
 
 
 
@@ -713,27 +792,26 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 				System.out.println();
 				if (responseSession.getAuthVerificationCode() != null && responseSession.getAuthVerificationCode()!= "")
 				{
-
+					System.out.println("Masked: " + responseSession.getToken().substring(responseSession.getToken().length()-4));
 					response.setApprovalCode(responseSession.getAuthVerificationCode());
 					response.setApprovalCode(getResponseCode(responseSession.getResponseStatusCode(), responseSession.getResponseReasonCode(), false));
 					response.setAuthorizationTransactionID(responseSession.getTransactionId());
-					response.setAccountNumber(encryptedCardNumber);  				//REVISIT: Send last four digits of credit card.
-					response.setAccountNumberToken(encryptedCardNumber); 			//REVISIT: Send last four digit of credit card. 
-					response.setMaskedAccountNumber(encryptedCardNumber); 			//REVISIT: Send last four digit of credit card.
+					response.setAccountNumber(responseSession.getToken().substring(responseSession.getToken().length()-4));  					
+					response.setAccountNumberToken(responseSession.getToken().substring(responseSession.getToken().length()-4)); 				 
+					response.setMaskedAccountNumber(responseSession.getToken().substring(responseSession.getToken().length()-4)); 				
 					response.setAuditTraceNumber(responseSession.getTransactionId());
 					response.setAuthorizationCode(responseSession.getResponseStatusCode());
 					response.setTraceNumber(responseSession.getResponseReasonCode());
-					response.setTenderSubType("Visa");								//REVISIT: Collect and Send Card Type.
+					response.setTenderSubType(cardType);													//TODO Card Type to be sent from CPG							
 					response.setAuthorisationResponseCode(responseSession.getAuthVerificationCode());
 					response.setResponseMessage(responseSession.getResponseMessage());
+					response.setDateTime("");
 				}
-
-				//response.setDateTime("");
+				
 
 			} else {
 				response = null;
 			}
-
 			// end switch
 		}
 
@@ -746,9 +824,12 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 					&& fe.getMessage().equalsIgnoreCase("Read Timed out")) {
 
 				response = new AuthResponse(TIMEOUT);
+				response.setResponseMessage("CPG Error" + fe.getMessage());
+			
 			} else {
 				fe.printStackTrace();
 				response = new AuthResponse(OFFLINE);
+				response.setResponseMessage("CPG Error" + fe.getMessage());
 			}
 
 		} 
@@ -759,12 +840,14 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 
 
 			response = new AuthResponse(OFFLINE);
+			response.setResponseMessage("CPG Error" + fe.getFaultMessage().toString());
 
 			fe.printStackTrace();
 			logger.error(fe);
+			System.out.println(fe.getFaultMessage().toString());
 		}
 		finally {
-			logger.info("Paymenttech Authorization Response : "+outDocument);
+			logger.info("Paymenttech Authorization Response : "+ outDocument);
 
 			// clear the requestStringBuffer
 			GenUtils.flushStringBuffer(requestStringBuffer);
@@ -776,16 +859,14 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 
 	}
 
-	
+	/**
+	 * 
+	 * @param machineID
+	 * @return
+	 */
 	public boolean readCSV(String machineID) {
-		// TODO Auto-generated method stub
-				
-		@SuppressWarnings("resource")
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/cox/ctas/service/loader/ApplicationContext.xml");      
-        logger.info("Getting CTAS Properties");
-        properties = (CTASProperties) applicationContext.getBean("CTASProperties");
+		
         String csvFile = properties.getCsvFilePath();
-        
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)";
@@ -1365,7 +1446,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 		this.teleCheckServiceURL = teleCheckServiceURL;
 	}
 
-	
+
 	/**
 	 * 
 	 * @param request
@@ -1389,7 +1470,7 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 	public void clientRestarted(String workstationID) {
 		// TODO Auto-generated method stub
 	}
-	
+
 	/**
 	 * 
 	 * @param workstationID
@@ -1416,10 +1497,20 @@ public class CoxTenderAuth implements CoxTenderAuthConstantsIfc{
 		this.paymentechInterval = paymentechInterval;
 	}
 
+	/**
+	 * gets the value held in properties
+	 * 
+	 * @return the properties
+	 */
 	public CTASProperties getProperties() {
 		return properties;
 	}
 
+	/**
+	 * sets the properties value
+	 * 
+	 * @param properties the properties to set
+	 */
 	public void setProperties(CTASProperties properties) {
 		this.properties = properties;
 	}

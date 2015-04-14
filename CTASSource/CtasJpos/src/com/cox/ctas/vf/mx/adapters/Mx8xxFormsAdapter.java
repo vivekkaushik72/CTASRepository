@@ -585,8 +585,9 @@ public class Mx8xxFormsAdapter implements DataListener, ErrorListener,
 
 	public void formMSR() {
 		try {
-			this.mx.getCardData("13");
 			this.mx.setDataEventEnabled(true);
+	
+			this.mx.getCardData("12");;
 			
 		} catch (JposException localJposException) {
 			CoxVfMxUtilities.handleJposException(localJposException, CLASSNAME);

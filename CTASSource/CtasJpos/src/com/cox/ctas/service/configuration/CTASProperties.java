@@ -11,14 +11,17 @@ package com.cox.ctas.service.configuration;
  */
 public class CTASProperties {
 	
-	/**holds the value for the register number*/
+	/**the value for the register number*/
 	public String registerNumber;
-	/**holds the value for the store number*/
+	/**the value for the store number*/
 	public String storeNumber;
-	/**holds the value for the server port*/
+	/**the value for the jServer port*/
 	public int jserverPort;
-	/**holds the value for the CSV File path containing device IDs*/
+	/**path for serial number csv file*/
 	public String csvFilePath;
+	/**path for paymenTech URL file*/
+	public String paymentechURL;
+	
 	
 	/**
 	 * gets the value stored in the registerNumber attribute
@@ -75,18 +78,39 @@ public class CTASProperties {
 	}
 
 	/**
-	 * @return the csvFilePath
+	 * gets the value stored in the csvFilePath attribute
+	 * 
+	 * @return	the value of csvFilePath
 	 */
 	public String getCsvFilePath() {
 		return csvFilePath;
 	}
 
 	/**
-	 * @param csvFilePath the csvFilePath to set
+	 * sets the value in the csvFilePath attribute
+	 * 
+	 * @param csvFilePath	the csvFilePath to set
 	 */
 	public void setCsvFilePath(String csvFilePath) {
 		this.csvFilePath = csvFilePath;
 	}
-	
+
+	/**
+	 * gets the value stored in the paymentechURL attribute
+	 * 
+	 * @return	the paymentechURL value
+	 */ 
+	public String getPaymentechURL() {
+		return paymentechURL;
+	}
+
+	/**
+	 * sets the value in the paymentechURL attribute
+	 * 
+	 * @param paymentechURL	the paymentechURL to set
+	 */
+	public void setPaymentechURL(String paymentechURL) {
+		this.paymentechURL = paymentechURL;
+	}
 	
 }

@@ -22,6 +22,6 @@ public interface CTASDeviceActionServiceIfc {
 	public void showSignature();
 	public void showTender(TenderRequest request);
 	public void showThanks();
-	public String getMSR();
+	public byte[] getMSR();
 	public String getSignature();
 }

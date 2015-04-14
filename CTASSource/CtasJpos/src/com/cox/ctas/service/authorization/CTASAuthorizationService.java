@@ -24,7 +24,7 @@ import com.cox.ctas.service.webservice.formatter.ResponseFormatter;
  * will utilize these methods to acquire authorization from the payment 
  * gateway and signature capture data from the CPOI device.
  * 
- * @author 
+ * @author corp/mamcfarl
  *
  */
 
