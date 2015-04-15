@@ -8,7 +8,8 @@
         <property name="registerNumber" value="129"/>
         <property name="storeNumber" value="04241"/>
         <property name="jserverPort" value="8090"/>
-        <property name="csvFilePath" value="src/com/cox/ctas/service/loader/machineIDs.csv"/>
+        <!--  <property name="csvFilePath" value="src/com/cox/ctas/service/loader/machineIDs.csv"/> -->
+        <property name="csvFilePath" value="C:/CTASService/config/machineIDs.csv"/>
         <!--  <property name="cardRulesFilePath" value="src/com/cox/ctas/service/loader/cardRules.xml" /> -->
  
         <!-- URL for LISA payment auth gateway 
@@ -16,7 +17,7 @@
         <!-- URL for Original PaymentTech payment auth gateway used for testing public.key encryption 
         <property name="paymentechURL" value="https://cpg.qa.cox.com:8443/PaymentechAuthorization/Authorization?wsdl" />--> 
         <!-- URL for CPG payment auth gateway used for testing public.key encryption -->
-        <property name="paymentechURL" value="https://cpg.dev.cox.com:8443/PaymentechAuthorization2/Authorization2?wsdl" />
+        <property name="paymentechURL" value="https://cpg.devint.cox.com:8443/PaymentechAuthorization2/Authorization2?wsdl" />
     </bean>
     
    <!--  <bean id="CardRuleProperties" class="com.cox.ctas.service.configuration.CardRuleProperties" lazy-init="false" scope="singleton">
