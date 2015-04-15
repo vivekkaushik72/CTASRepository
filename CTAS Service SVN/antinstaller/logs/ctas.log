@@ -1,0 +1,584 @@
+INFO  2015-04-11 19:27:46,741 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@c0d228: startup date [Sat Apr 11 19:27:46 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:27:47,049 308    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:27:47,897 1156   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:79)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:27:47,916 1175   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:27:54,076 7335   (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:27:54,166 7425   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@1676b1e: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:27:54 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:27:54,323 7582   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:27:54,487 7746   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:27:54,640 7899   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:27:54,756 8015   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:27:54,995 8254   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@1676b1e]: org.springframework.beans.factory.support.DefaultListableBeanFactory@190cc61
+
+INFO  2015-04-11 19:27:55,570 8829   (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@190cc61: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 19:28:00,487 13746  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 6409 ms
+
+INFO  2015-04-11 19:28:00,825 14084  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1fcfede: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@190cc61
+
+INFO  2015-04-11 19:28:01,086 14345  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 19:29:50,035 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5fe91a: startup date [Sat Apr 11 19:29:50 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:29:50,307 272    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:29:51,110 1075   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:79)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:29:51,141 1106   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:29:57,073 7038   (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:29:57,160 7125   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@12a55a6: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:29:57 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:29:57,309 7274   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:29:57,462 7427   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:29:57,609 7574   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:29:57,710 7675   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:29:58,028 7993   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@12a55a6]: org.springframework.beans.factory.support.DefaultListableBeanFactory@eb9101
+
+INFO  2015-04-11 19:29:58,471 8436   (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@eb9101: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 19:30:03,881 13846  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 6807 ms
+
+INFO  2015-04-11 19:30:04,139 14104  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@432fec: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@eb9101
+
+INFO  2015-04-11 19:30:04,360 14325  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 19:31:29,905 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5fe91a: startup date [Sat Apr 11 19:31:29 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:31:30,235 330    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:31:30,973 1068   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:79)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:31:31,006 1101   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:31:39,010 9105   (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:31:39,234 9329   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@8d468a: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:31:39 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:31:39,496 9591   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:31:39,709 9804   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:31:39,844 9939   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:31:39,904 9999   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:31:40,125 10220  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@8d468a]: org.springframework.beans.factory.support.DefaultListableBeanFactory@1da5b5b
+
+INFO  2015-04-11 19:31:40,580 10675  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1da5b5b: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 19:31:45,299 15394  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 6288 ms
+
+INFO  2015-04-11 19:31:45,529 15624  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5fd37: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1da5b5b
+
+INFO  2015-04-11 19:31:45,742 15837  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 19:40:24,932 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5fe91a: startup date [Sat Apr 11 19:40:24 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:40:25,368 436    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:40:26,168 1236   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:40:26,204 1272   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:40:35,676 10744  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:40:35,786 10854  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@184e5a8: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:40:35 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:40:35,977 11045  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:40:36,254 11322  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:40:36,406 11474  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:40:36,493 11561  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:40:37,053 12121  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@184e5a8]: org.springframework.beans.factory.support.DefaultListableBeanFactory@abbf8e
+
+INFO  2015-04-11 19:40:37,619 12687  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@abbf8e: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 19:40:42,508 17576  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 6831 ms
+
+INFO  2015-04-11 19:40:42,793 17861  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1383aab: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@abbf8e
+
+INFO  2015-04-11 19:40:42,988 18056  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 19:43:46,489 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5fe91a: startup date [Sat Apr 11 19:43:46 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:43:46,758 269    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:43:47,612 1123   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:43:47,658 1169   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:43:55,834 9345   (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:43:55,936 9447   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@fb6a7b: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:43:55 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:43:56,104 9615   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:43:56,301 9812   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:43:56,425 9936   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:43:56,480 9991   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:43:56,742 10253  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@fb6a7b]: org.springframework.beans.factory.support.DefaultListableBeanFactory@2ba9b0
+
+INFO  2015-04-11 19:43:57,281 10792  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2ba9b0: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 19:44:03,090 16601  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 7254 ms
+
+INFO  2015-04-11 19:44:03,361 16872  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1dcf865: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@2ba9b0
+
+INFO  2015-04-11 19:44:03,613 17124  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 19:45:16,415 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a46497: startup date [Sat Apr 11 19:45:16 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:45:16,920 505    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:45:17,995 1580   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:45:18,056 1641   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:45:32,752 16337  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:45:32,850 16435  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@14cfca5: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:45:32 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:45:33,039 16624  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:45:33,322 16907  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:45:33,456 17041  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:45:33,510 17095  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:45:34,025 17610  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@14cfca5]: org.springframework.beans.factory.support.DefaultListableBeanFactory@13fd958
+
+INFO  2015-04-11 19:46:20,609 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a46497: startup date [Sat Apr 11 19:46:20 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:46:20,904 295    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 19:46:21,681 1072   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 19:46:21,711 1102   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 19:46:27,536 6927   (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 19:46:27,650 7041   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@3ceb07: display name [Root WebApplicationContext]; startup date [Sat Apr 11 19:46:27 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 19:46:27,803 7194   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 19:46:27,953 7344   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 19:46:28,067 7458   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 19:46:28,120 7511   (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 19:46:28,374 7765   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@3ceb07]: org.springframework.beans.factory.support.DefaultListableBeanFactory@9b8f86
+
+INFO  2015-04-11 19:46:28,904 8295   (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@9b8f86: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 19:46:33,524 12915  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 5988 ms
+
+INFO  2015-04-11 19:46:33,757 13148  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@e5f08b: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@9b8f86
+
+INFO  2015-04-11 19:46:33,974 13365  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 21:00:07,871 1923   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 21:00:15,828 9880   (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 21:00:15,947 9999   (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@19a43fb: display name [Root WebApplicationContext]; startup date [Sat Apr 11 21:00:15 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 21:00:16,147 10199  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 21:00:16,453 10505  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 21:00:16,700 10752  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 21:00:16,857 10909  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 21:00:17,396 11448  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@19a43fb]: org.springframework.beans.factory.support.DefaultListableBeanFactory@1a65198
+
+INFO  2015-04-11 21:00:17,982 12034  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1a65198: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 21:00:23,805 17857  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:209)] 
+      Root WebApplicationContext: initialization completed in 7976 ms
+
+INFO  2015-04-11 21:00:24,069 18121  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@bdbaa2: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1a65198
+
+INFO  2015-04-11 21:00:24,346 18398  (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:61)] 
+      ****************** Jetty Server Started ******************
+
+INFO  2015-04-11 21:01:21,581 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a46497: startup date [Sat Apr 11 21:01:21 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 21:01:21,942 361    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 21:01:22,715 1134   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 21:01:22,761 1180   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 21:01:32,402 10821  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 21:01:32,607 11026  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@d44892: display name [Root WebApplicationContext]; startup date [Sat Apr 11 21:01:32 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 21:01:32,749 11168  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 21:01:32,925 11344  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 21:01:33,049 11468  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 21:01:33,101 11520  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 21:01:33,587 12006  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@d44892]: org.springframework.beans.factory.support.DefaultListableBeanFactory@15c9b9c
+
+INFO  2015-04-11 21:01:34,285 12704  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@15c9b9c: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-11 21:03:31,424 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5fe91a: startup date [Sat Apr 11 21:03:31 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 21:03:31,713 289    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 21:03:32,523 1099   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 21:03:32,547 1123   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 21:03:50,876 1540   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 21:05:15,040 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5fe91a: startup date [Sat Apr 11 21:05:15 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 21:05:15,339 299    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-11 21:05:16,278 1238   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-11 21:05:16,315 1275   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+
+INFO  2015-04-11 21:05:26,241 11201  (main:org.springframework.web.context.ContextLoader):
+      [org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:189)] 
+      Root WebApplicationContext: initialization started
+
+INFO  2015-04-11 21:05:26,441 11401  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:411)] 
+      Refreshing org.springframework.web.context.support.XmlWebApplicationContext@1cf4813: display name [Root WebApplicationContext]; startup date [Sat Apr 11 21:05:26 IST 2015]; root of context hierarchy
+
+INFO  2015-04-11 21:05:26,611 11571  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from ServletContext resource [/WEB-INF/cxf-beans.xml]
+
+INFO  2015-04-11 21:05:26,853 11813  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+
+INFO  2015-04-11 21:05:27,060 12020  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+
+INFO  2015-04-11 21:05:27,124 12084  (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:323)] 
+      Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+
+INFO  2015-04-11 21:05:27,507 12467  (main:org.springframework.web.context.support.XmlWebApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:426)] 
+      Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@1cf4813]: org.springframework.beans.factory.support.DefaultListableBeanFactory@14c0064
+
+INFO  2015-04-11 21:05:28,128 13088  (main:org.springframework.beans.factory.support.DefaultListableBeanFactory):
+      [org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:414)] 
+      Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@14c0064: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.transport.servlet.ServletTransportFactory,myPasswordCallback,CTASMessageHandler,wss4jInConfiguration]; root of factory hierarchy
+
+INFO  2015-04-12 15:27:47,914 0      (main:org.springframework.context.support.ClassPathXmlApplicationContext):
+      [org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:513)] 
+      Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1d15f8c: startup date [Sun Apr 12 15:27:47 IST 2015]; root of context hierarchy
+
+INFO  2015-04-12 15:27:48,391 477    (main:org.springframework.beans.factory.xml.XmlBeanDefinitionReader):
+      [org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316)] 
+      Loading XML bean definitions from class path resource [config/context/ApplicationContext.xml]
+
+INFO  2015-04-12 15:27:49,417 1503   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.loadCTASProperties(CTASLoader.java:78)] 
+      Getting CTAS Properties
+
+INFO  2015-04-12 15:27:49,481 1567   (main:com.cox.ctas.service.loader.CTASLoader):
+      [com.cox.ctas.service.loader.CTASLoader.main(CTASLoader.java:58)] 
+      ****************** Starting CTAS Service ******************
+

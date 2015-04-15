@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <card isAllowed="True" name="Visa" type="Credit" typeCode="1" cardRegexPattern="^4[0-9]{6,}$">
+    	<ruleLength>13</ruleLength>
+    	<ruleLength>16</ruleLength>
+    	<int-array name="ruleMask">
+    		<item>4</item>
+    	</int-array>
+    </card>
+     <card isAllowed="True" name="MasterCard" type="Credit" typeCode="1" cardRegexPattern="^5[1-5][0-9]{5,}$">
+	   	<int-array name="ruleLength">
+	   		<item>16</item>
+	   	</int-array>
+	   	<int-array name="ruleBinRange">
+	   		<item>51</item>
+	   		<item>55</item>
+	   	</int-array>
+   </card>
+    <card isAllowed="True" name="AmEx" type="Credit" typeCode="1" cardRegexPattern="^3[47][0-9]{5,}$">
+	   	<int-array name="ruleLength">
+	   		<item>15</item>
+	   	</int-array>
+	   	<int-array name="ruleBinRange">
+	   		<item>34</item>
+	   		<item>37</item>
+	   	</int-array>
+   </card>
+   <card isAllowed="True" name="Discover" type="Credit" typeCode="1" cardRegexPattern="^6(?:011|5[0-9]{2})[0-9]{3,}$">
+	   	<ruleBinRange>
+	   		<minimumValue>601100</minimumValue>
+	   		<maximumValue>601109</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>601120</minimumValue>
+	   		<maximumValue>601149</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>601174</minimumValue>
+	   		<maximumValue>601174</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>601177</minimumValue>
+	   		<maximumValue>601179</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>601186</minimumValue>
+	   		<maximumValue>601109</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>601100</minimumValue>
+	   		<maximumValue>601199</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>644000</minimumValue>
+	   		<maximumValue>649999</maximumValue>
+	   	</ruleBinRange>
+	   	<ruleBinRange>
+	   		<minimumValue>650000</minimumValue>
+	   		<maximumValue>659999</maximumValue>
+	   	</ruleBinRange>
+   </card>
+</config>

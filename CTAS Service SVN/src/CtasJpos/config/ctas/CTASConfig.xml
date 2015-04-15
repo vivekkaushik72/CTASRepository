@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<!-- CTAS Config Settings -->
+    <CTASCONFIG name="CTAS">
+        <PROPERTY propname="registerId" propvalue="129"/>
+        <PROPERTY propname="storeId" propvalue="04241"/>
+        <PROPERTY propname="PaymentTechURL" propvalue=""/>
+    </CTASCONFIG>

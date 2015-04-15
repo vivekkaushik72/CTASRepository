@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	 http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd ">
+	
+<import resource="classpath:META-INF/cxf/cxf.xml" />
+<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+<bean id="myPasswordCallback" class="com.cox.ctas.webcontent.webservice.handler.WSCallbackHandler"/>
+
+	
+	<jaxws:endpoint xmlns:tns="http://auth.txn.com/" id="CTASMessageHandler"
+		implementor="com.cox.ctas.webcontent.webservice.CTASMessageHandlerImpl" 
+		endpointName="tns:CTASMessageHandlerImplPort" serviceName="tns:CTASMessageHandlerService"
+		address="/CTASMessageHandlerImplPort">
+	     <jaxws:inInterceptors>
+			<bean class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor" />
+			<ref bean="wss4jInConfiguration" /> 
+		</jaxws:inInterceptors>
+		
+	</jaxws:endpoint>		
+	<bean id="wss4jInConfiguration" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+		<property name="properties">
+			<map>
+				<entry key="action" value="UsernameToken" />
+				<entry key="passwordType" value="PasswordText" />
+				<entry>
+					<key>
+						<value>passwordCallbackRef</value>
+					</key>
+					<ref bean="myPasswordCallback" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>
+<!-- 
+<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+ -->

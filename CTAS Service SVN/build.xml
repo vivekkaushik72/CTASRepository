@@ -1,0 +1,105 @@
+<project name="CTAS" default="dist" basedir=".">
+    <description>
+        Build file for CTAS
+    </description>
+  <!-- set global properties for this build -->
+  <property name="projects.dir" location="."/>
+  <property name="src" location="${projects.dir}/src/CtasJpos/src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="build.libraries"  location="${projects.dir}/src/CtasJpos/lib"/>
+  <property name="build.jettylibraries"  location="${projects.dir}/src/CtasJpos/lib/jetty"/>
+  <import file="${projects.dir}/src/WebService/build/build.xml"/>
+  
+  <path id="project.classpath">
+		<fileset dir="${build.libraries}">
+              <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${build.jettylibraries}">
+	              <include name="*.jar"/>
+        </fileset>
+  </path>
+
+  <target name="init">
+   <property file="build.properties"/>
+    <!-- Create the build directory structure used by compile -->
+    <echo message="**********************      :  Building CTAS Project  :       *******************************"/>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="Compile the source " >
+    <echo message="**********************     :  Compiling Source  :  *******************************"/>
+    <javac 
+    	srcdir="${src}" 
+    	destdir="${build}">
+               <classpath>
+                    <path refid="project.classpath"/>
+            </classpath>
+    </javac>
+
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <echo message="**********************   :  Making Jars :   *******************************"/>
+	<copy todir="${build}"             
+  		overwrite="true"
+        	verbose="${installer.verbose}">
+        	<fileset dir="${src}"> 
+			<include name="**/*.xml"/>
+                </fileset>
+    </copy>
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/ctas/lib"/>
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/ctas/lib/ctas.jar" basedir="${build}"/>
+  </target>
+  
+ <target name="transfer.installer" description="clean up" depends="dist,makewar">
+ <echo message="**********************   :  Moving Jars to Service Folder  :   *******************************"/>
+  <property file="build.properties"/>
+
+  <!--<property name="installer.dir" value="${client.install.dir}"/>-->
+    	<copy todir="${projects.dir}/antinstaller/lib" overwrite="true"
+        	verbose="${installer.verbose}">
+			           	<fileset dir="${dist}/ctas/lib" >
+                  </fileset>
+          </copy>
+		<copy todir="${projects.dir}/antinstaller/lib" overwrite="true"
+        	verbose="${installer.verbose}">
+			           	<fileset dir="${build.libraries}" >
+                  </fileset>
+        </copy>
+		<copy todir="${projects.dir}/antinstaller/lib" overwrite="true"
+        	verbose="${installer.verbose}">
+			           	<fileset dir="${build.jettylibraries}" >
+                  </fileset>
+        </copy>
+	   	<copy todir="${projects.dir}/antinstaller/war" overwrite="true"
+        	verbose="${installer.verbose}">
+			           	<fileset dir="${ctas-directory}" >
+                  </fileset>
+         </copy>
+
+ </target>
+    
+  <target name="zipservice" depends="transfer.installer">
+  <echo message="**********************   :  Creating Zip file :   *******************************"/>
+		<delete file="${ctas.install.dir}/*.zip" />
+		<zip destfile="${ctas.install.dir}/CTASService.zip" basedir="${projects.dir}/antinstaller"  />
+  </target>
+	
+  <target name="installer" description="clean up" depends="zipservice">
+  <echo message="**********************   :  Cleaning:   *******************************"/>
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+  </target>
+  
+ 
+  <target name="help">
+            <echo message="Type ant -projecthelp for help"/>
+  </target>
+  
+</project>

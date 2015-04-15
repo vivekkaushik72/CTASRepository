@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <bean id="CTASProperties" class="com.cox.ctas.service.configuration.CTASProperties" lazy-init="false" scope="singleton">
+        <property name="registerNumber" value="129"/>
+        <property name="storeNumber" value="04241"/>
+        <property name="jserverPort" value="8090"/>
+        <property name="csvFilePath" value="src/com/cox/ctas/service/loader/machineIDs.csv"/>
+    </bean>
+
+</beans>

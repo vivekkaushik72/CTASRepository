@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+-->
+
+<beans>    
+
+    <!-- The value of the default locale from the LocaleMap -->
+    <bean id="WebServiceProperties" class="com.cox.ctas.service.configuration.WebServiceProperties" lazy-init="false" singleton="true">
+        <property name="registerId" value="129"/>
+        <property name="storeId" value="04241"/>
+    </bean>
+    
+ </beans> 

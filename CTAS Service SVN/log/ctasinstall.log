@@ -1,0 +1,68 @@
+Setting enviornment for CTAS Source build
+PROJECT_DIR=F:\CTASRepository\CTAS Service SVN1
+Buildfile: F:\CTASRepository\CTAS Service SVN1\build.xml
+
+init:
+     [echo] **********************      :  Building CTAS Project  :       *******************************
+    [mkdir] Created dir: F:\CTASRepository\CTAS Service SVN1\build
+
+compile:
+     [echo] **********************     :  Compiling Source  :  *******************************
+    [javac] F:\CTASRepository\CTAS Service SVN1\build.xml:35: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 53 source files to F:\CTASRepository\CTAS Service SVN1\build
+    [javac] F:\CTASRepository\CTAS Service SVN1\src\CtasJpos\src\com\cox\ctas\vf\mx\adapters\FormAdapterTest.java:13: warning: ImageUtil is internal proprietary API and may be removed in a future release
+    [javac] import com.sun.imageio.plugins.common.ImageUtil;
+    [javac]                                      ^
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 warning
+
+dist:
+     [echo] **********************   :  Making Jars :   *******************************
+     [copy] Copying 2 files to F:\CTASRepository\CTAS Service SVN1\build
+    [mkdir] Created dir: F:\CTASRepository\CTAS Service SVN1\dist\ctas\lib
+      [jar] Building jar: F:\CTASRepository\CTAS Service SVN1\dist\ctas\lib\ctas.jar
+
+initwar:
+     [echo] **********************     :  Starting WAR build  :  *******************************
+    [mkdir] Created dir: F:\CTASRepository\CTAS Service SVN1\wardist
+    [mkdir] Created dir: F:\CTASRepository\CTAS Service SVN1\wardist\bin
+
+compilewar:
+     [echo] **********************     :  Compiling WAR Source  :  *******************************
+    [javac] F:\CTASRepository\CTAS Service SVN1\src\WebService\build\build.xml:80: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 4 source files to F:\CTASRepository\CTAS Service SVN1\wardist\bin
+
+war:
+     [echo] **********************   :  Making WAR file:   *******************************
+      [war] Building war: F:\CTASRepository\CTAS Service SVN1\wardist\CTASWebService.war
+
+copy:
+     [echo] **********************   :  Moving WAR to CTAS Location  :   *******************************
+     [copy] Copying 1 file to F:\CTASRepository\CTAS Service SVN1\src\CtasJpos\war
+
+makewar:
+     [echo] **********************   :  Cleaning WAR dist directory:   *******************************
+   [delete] Deleting directory F:\CTASRepository\CTAS Service SVN1\wardist
+
+transfer.installer:
+     [echo] **********************   :  Moving Jars to Service Folder  :   *******************************
+     [copy] Copying 1 file to F:\CTASRepository\CTAS Service SVN1\antinstaller\lib
+     [copy] Copying 67 files to F:\CTASRepository\CTAS Service SVN1\antinstaller\lib
+     [copy] Copying 26 files to F:\CTASRepository\CTAS Service SVN1\antinstaller\lib
+     [copy] Copying 1 file to F:\CTASRepository\CTAS Service SVN1\antinstaller\war
+
+zipservice:
+     [echo] **********************   :  Creating Zip file :   *******************************
+      [zip] Warning: war\CTASWebService.war modified in the future.
+      [zip] Building zip: C:\CTASService\tmp\CTASService.zip
+
+installer:
+     [echo] **********************   :  Cleaning:   *******************************
+   [delete] Deleting directory F:\CTASRepository\CTAS Service SVN1\build
+   [delete] Deleting directory F:\CTASRepository\CTAS Service SVN1\dist
+
+BUILD SUCCESSFUL
+Total time: 37 seconds
